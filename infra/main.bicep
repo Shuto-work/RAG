@@ -194,18 +194,18 @@ module openAi './modules/ai/cognitiveservices.bicep' = {
     // Azure OpenAI Serviceのモデルをデプロイする。現時点では最も汎用的なモデルであるgpt-35-turboをデプロイする。
     // また、ベクトル検索に利用するためのtext-embedding-ada-002もデプロイする。
     deployments: [
-      {
-        name: 'gpt-35-turbo-deploy'
-        model: {
-          format: 'OpenAI'
-          name: 'gpt-35-turbo'
-          version: '0613'
-        }
-        sku: {
-          name: 'Standard'
-          capacity: 80
-        }
-      }
+      // {
+      //   name: 'gpt-35-turbo-deploy'
+      //   model: {
+      //     format: 'OpenAI'
+      //     name: 'gpt-35-turbo'
+      //     version: '0613'
+      //   }
+      //   sku: {
+      //     name: 'Standard'
+      //     capacity: 80
+      //   }
+      // }
       {
         name: 'gpt-4-deploy'
         model: {
@@ -215,21 +215,21 @@ module openAi './modules/ai/cognitiveservices.bicep' = {
         }
         sku: {
           name: 'Standard'
-          capacity: 10
+          capacity: 8
         }
       }
-      {
-        name: 'gpt-4-32k-deploy'
-        model: {
-          format: 'OpenAI'
-          name: 'gpt-4-32k'
-          version: '0613'
-        }
-        sku: {
-          name: 'Standard'
-          capacity: 20
-        }
-      }
+      // {
+      //   name: 'gpt-4-32k-deploy'
+      //   model: {
+      //     format: 'OpenAI'
+      //     name: 'gpt-4-32k'
+      //     version: '0613'
+      //   }
+      //   sku: {
+      //     name: 'Standard'
+      //     capacity: 20
+      //   }
+      // }
       {
         name: 'text-embedding-ada-002-deploy'
         model: {
@@ -358,3 +358,4 @@ output DOCUMENT_INTELLIGENCE_ENDPOINT string = documentIntelligence.outputs.endp
 // Azure Cosmos DBにAzure Functionsがアクセスするためのカスタムロールの作成が必要になる。
 // その作成したカスタムロールの権限の付与先となるマネージドIDを出力する。
 output BACKEND_IDENTITY_PRINCIPAL_ID string = api.outputs.identityPrincipalId
+

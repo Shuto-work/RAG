@@ -57,14 +57,14 @@ az cosmosdb sql role assignment create --account-name "$COSMOSDB_ACCOUNT" --reso
 
 # インデクサーのPythonスクリプトを実行するためのPython仮想環境を作成し、依存関係をインストールする
 echo 'Creating python virtual environment "scripts/.venv"'
-python -m venv scripts/.venv
+python3 -m venv scripts/.venv
 
 echo 'Installing dependencies from "requirements.txt" into virtual environment'
-./scripts/.venv/bin/python -m pip install -r scripts/requirements.txt
+./scripts/.venv/bin/python3 -m pip install -r scripts/requirements.txt
 
 # バックエンド(Azure Functions)を実行するためのPython仮想環境を作成する。
 echo 'Creating python virtual environment "src/backend/.venv"'
-python -m venv src/backend/.venv
+python3 -m venv src/backend/.venv
 
 # インデクサーを実行する
-./scripts/.venv/bin/python scripts/indexer.py --docs ./data/* 
+./scripts/.venv/bin/python3 scripts/indexer.py --docs ./data/* 
