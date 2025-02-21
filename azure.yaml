@@ -20,7 +20,7 @@ services:
           interactive: true
           continueOnError: false
   api:
-    project: ./src/backend
+    project: ./api/backend
     language: py
     host: function
 hooks:
